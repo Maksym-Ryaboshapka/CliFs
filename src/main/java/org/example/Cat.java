@@ -25,13 +25,10 @@ public class Cat implements Runnable {
     }
 
     try (FileInputStream fis = new FileInputStream(filePath)) {
-      StringBuilder sb = new StringBuilder();
       int byteRead;
       while ((byteRead = fis.read()) != -1) {
-        sb.append((char) byteRead);
+        System.out.print((char) byteRead);
       }
-
-      System.out.println(sb);
     } catch (IOException e) {
       e.printStackTrace();
     }
