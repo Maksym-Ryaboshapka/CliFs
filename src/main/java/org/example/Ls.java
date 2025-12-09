@@ -23,10 +23,13 @@ public class Ls implements Runnable {
       return;
     }
 
-    if (dir.exists() && dir.isDirectory()) {
-      File[] files = dir.listFiles();
-      if (files != null) {
-        for (File file : files) {
+
+    File[] files = dir.listFiles();
+    if (files != null) {
+      for (File file : files) {
+        if (file.isDirectory()) {
+          System.out.println(file.getName() + "/");
+        } else {
           System.out.println(file.getName());
         }
       }
